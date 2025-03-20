@@ -1,9 +1,14 @@
 import streamlit as st
 import pandas as pd
 import openai
+from dotenv import load_dotenv
+import os
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Set up OpenAI API key
-client = openai.OpenAI(api_key="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")
+client = openai.OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 def main():
     st.title("Excel Q&A with OpenAI")
